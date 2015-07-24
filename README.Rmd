@@ -1,0 +1,39 @@
+---
+title: "ReadMe"
+output: html_document
+---
+
+###Introduction
+This document will describe the working of the script.
+
+###Running the script
+There is only 1 single script for this analysis. The script is called run_analysis.R. The script can be executed line by line in sequence or simply run as a whole.
+
+###Requirements
+The script assumes that you have the following underlying source data available in your working directory:
+
+- activity_labels.txt
+- features.txt
+- ./train/subject_train.txt
+- ./train/X_train.txt
+- ./train/y_train.txt
+- ./test/subject_test.txt
+- ./test/X_test.txt
+- ./test/y_test.txt
+
+If this data is not available it can be downloaded and extracted from https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
+
+Once the underlying data is available you can simply execute all steps in the script in sequence.
+
+The script assumes that you have the dplyr package available on your R instance.
+
+###Output
+The script will create 2 output files in the working directory:
+
+- TIDY_DATA.txt (this file contains merged and tidied data for all data observations for all subjects and activities)
+- TIDY_DATA_AVG_SUMMARY.txt (this file contains the average for all measurements per subject and activity)
+
+###Final
+A detailed explanation of the logic of the script can be found in the CodeBook.rmd file.
+
+

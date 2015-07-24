@@ -1,0 +1,96 @@
+---
+title: "CodeBook"
+output: html_document
+---
+
+###Introduction
+This document will describe the data and the transformations performed to clean up the data.
+
+The data looks at only at the mean and standard deviation of measurements measured for acceleration and velocity per observation for each subject and for each activity.
+
+The source data contains unlabeled data for separate test and training sets.
+
+After loading the initial X source data, the first step was to add the correct column names to the data as described by the underlying features data set.
+
+The Y source data described the unlabeled activities of each individual observation. This data was merged with the actibity labels to produce a labeled activity for each observation. (it is important to make sure the order of observations don't change during the merge and thus a helper column with observation ids was introduced)
+
+Once the above has been completed for both training and test data sets, we are finally ready to merge these 2 sets together to form 1 single data set. It is no longer required to distinguish between test and training observations so this factor is lost in the merged set.
+
+After the merge we extract only the columns of interest (subject activity and columns related to mean and standard deviation of the measures)
+
+This forms the basis of our tidy data.
+
+The main data file is TIDY_DATA.txt. This file contains the following columns (some descriptions are given but not all for the sake of keeping things brief. All descriptions can be derived from those given. The pattern and type of observation is clear from the column heading. columns prefixed with f are the same as those prefixed with t except that they are the t columns on which a fast fourier transform has been done):
+
+- tBodyAcc.mean...X (average of body accelerometer around X axis)
+- tBodyAcc.std...Y (standard deviation of body accelerometer around Y axis)
+- tGravityAcc.mean...Z (average of gravity accelerometer around Z axis)
+- tBodyAccJerk.mean...X (average of jerk signal around X axis)
+- tBodyAccJerk.std...Y (standard deviation of jerk signal around Y axis)
+- tBodyGyro.mean...Z (average of body gyro around Z axis)
+- tBodyGyroJerk.mean...X (average of gyro jerk signal around X axis)
+- tBodyGyroJerk.std...Y (standard deviation of gyro jerk around Y axis)
+- tGravityAccMag.mean.. (average of magnitude of gravity accelerometer)
+- tBodyGyroMag.mean.. (average of magnitude of gyro)
+- fBodyAcc.mean...X
+- fBodyAcc.std...Y
+- fBodyAccJerk.mean...Z
+- fBodyGyro.mean...X
+- fBodyGyro.std...Y
+- fBodyBodyAccJerkMag.mean..
+- fBodyBodyGyroJerkMag.mean..
+- tBodyAcc.mean...Y (average of body accelerometer around Y axis)
+- tBodyAcc.std...Z (standard deviation of body accelerometer around Z axis)
+- tGravityAcc.std...X 
+- tBodyAccJerk.mean...Y
+- tBodyAccJerk.std...Z
+- tBodyGyro.std...X
+- tBodyGyroJerk.mean...Y
+- tBodyGyroJerk.std...Z
+- tGravityAccMag.std..
+- tBodyGyroMag.std..
+- fBodyAcc.mean...Y
+- fBodyAcc.std...Z
+- fBodyAccJerk.std...X
+- fBodyGyro.mean...Y
+- fBodyGyro.std...Z
+- fBodyBodyAccJerkMag.std..
+- fBodyBodyGyroJerkMag.std..
+- tBodyAcc.mean...Z (average of body accelerometer around Z axis)
+- tGravityAcc.mean...X
+- tGravityAcc.std...Y
+- tBodyAccJerk.mean...Z
+- tBodyGyro.mean...X
+- tBodyGyro.std...Y
+- tBodyGyroJerk.mean...Z
+- tBodyAccMag.mean..
+- tBodyAccJerkMag.mean..
+- tBodyGyroJerkMag.mean..
+- fBodyAcc.mean...Z
+- fBodyAccJerk.mean...X
+- fBodyAccJerk.std...Y
+- fBodyGyro.mean...Z
+- fBodyAccMag.mean..
+- fBodyBodyGyroMag.mean..
+- tBodyAcc.std...X (standard deviation of body accelerometer around X axis)
+- tGravityAcc.mean...Y
+- tGravityAcc.std...Z
+- tBodyAccJerk.std...X
+- tBodyGyro.mean...Y
+- tBodyGyro.std...Z
+- tBodyGyroJerk.std...X
+- tBodyAccMag.std..
+- tBodyAccJerkMag.std..
+- tBodyGyroJerkMag.std..
+- fBodyAcc.std...X
+- fBodyAccJerk.mean...Y
+- fBodyAccJerk.std...Z
+- fBodyGyro.std...X
+- fBodyAccMag.std..
+- fBodyBodyGyroMag.std..
+- subject (subject of observation)
+- activity (activity performed during observations)
+
+
+The summary output is simply the average of each data column grouped by subject and activity.
+
